@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="id">
-<!DOCTYPE html>
-<html lang="id">
 <head>
     <meta charset="UTF-8">
     <title>IncubeSolutions</title>
@@ -190,11 +188,11 @@ html {
 <section id="about" class="section">
     <div class="container">
         <div class="glass p-5 text-center">
-            <h2 class="neon-text mb-3">About Us</h2>
+            <h2 class="neon-text mb-3">
+              {{ $about->title ?? 'About Us' }}
+            </h2>
             <p>
-                IncubeSolutions adalah company teknologi yang fokus
-                membangun web modern, cepat, dan scalable menggunakan
-                teknologi masa depan.
+               {{ $about->content ?? 'Konten belum tersedia' }}
             </p>
         </div>
     </div>
@@ -241,7 +239,7 @@ html {
                 </div>
             @endif
 
-            <form method="POST" action="/contact">
+            <form method="POST" action="{{ route('contact.store') }}">
                 @csrf
 
                 <div class="mb-3">
